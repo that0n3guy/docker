@@ -33,7 +33,7 @@ RUN rm -r $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE
 
 # setup runit to run teamcity on startup
 RUN mkdir /etc/service/teamcity-server
-ADD run-tc-server.sh /etc/service/teamcity-server/run
+ADD run-teamcity-server.sh /etc/service/teamcity-server/run
 
 EXPOSE 8111
 # this isn't needed:
