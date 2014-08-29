@@ -1,6 +1,6 @@
 ####################################
 # Ubuntu Baseimage Team City 8 Docker Image
-# run this with: docker run -dt --name tc_server -p 8111:8111 teamcity-server
+# run this with: docker run -dt --name teamcity_server -p 8111:8111 that0n3guy/docker-teamcity-server
 # build this with: docker build -t teamcity-server .
 ####################################
 
