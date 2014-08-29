@@ -32,13 +32,13 @@ RUN mv $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE/$MYSQL_JDBC_PACKAGE-bin.
 RUN rm -r $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE
 
 # setup runit to run teamcity on startup
-# RUN mkdir /etc/service/teamcity-server
-# ADD run-teamcity-server.sh /etc/service/teamcity-server/run
-# RUN chmod +x /etc/service/teamcity-server/run
+RUN mkdir /etc/service/teamcity-server
+ADD run-teamcity-server.sh /etc/service/teamcity-server/run
+RUN chmod +x /etc/service/teamcity-server/run
 
 EXPOSE 8111
 # this isn't needed:
-CMD .$TEAM_CITY_INSTALL_DIR/TeamCity/bin/teamcity-server.sh run
+# CMD .$TEAM_CITY_INSTALL_DIR/TeamCity/bin/teamcity-server.sh run
 
 VOLUME ["/opt/teamcity-data"]
 
