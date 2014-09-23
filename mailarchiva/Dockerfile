@@ -32,7 +32,7 @@ RUN wget -q -O - $MAILARCHIVA_BASE_URL | tar xzf - -C $MAILARCHIVA_INSTALL_DIR
 RUN mv $MAILARCHIVA_INSTALL_DIR/mailarchiva* $MAILARCHIVA_INSTALL_DIR/mailarchiva
 
 # Install mailarchiva - use expect to automate the interactive install
-ADD expect-install $MAILARCHIVA_INSTALL_DIR/mailarchiva
+ADD expect-install $MAILARCHIVA_INSTALL_DIR/mailarchiva/expect-install
 RUN expect $MAILARCHIVA_INSTALL_DIR/mailarchiva/expect-install
 
 # setup runit to run mailarchiva on startup
