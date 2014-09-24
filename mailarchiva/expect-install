@@ -43,19 +43,18 @@ if {$force_conservative} {
 
 
 set timeout -1
-spawn $env(SHELL)
-match_max 100000
-expect "# "
-send -- "/opt/mailarchiva/install\r"
+spawn $::env(MAILARCHIVA_INSTALL_DIR)/mailarchiva/install
 expect -exact "Press \[enter\] to read the license agreement..."
+sleep 1
 send -- "\r"
+sleep 1
 expect -exact "SOFTWARE LICENCE"
-send -- "   "
-expect -exact "Do you agree to the terms of the agreement (yes/no)? "
+#Hit space to scroll through agreement
+send -- "  "
+expect -exact "Do you agree to the terms of the agreement"
 send -- "yes\r"
 expect -exact "Max heap size \[768m-1234m\]?:"
-send -- "$MAILARCHIVA_HEAP_SIZE"
-expect -exact "MAILARCHIVA_HEAP_SIZE"
+send --  "$::env(MAILARCHIVA_HEAP_SIZE)\r"
+expect -exact "$::env(MAILARCHIVA_HEAP_SIZE)"
 send -- "\r"
 expect -exact "# "
-

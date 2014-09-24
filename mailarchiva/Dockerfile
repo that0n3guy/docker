@@ -12,7 +12,7 @@ FROM phusion/baseimage:0.9.13
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 ENV MAILARCHIVA_BASE_URL https://mailarchiva.com/download?id=440             
-ENV MAILARCHIVA_INSTALL_DIR /opt/
+ENV MAILARCHIVA_INSTALL_DIR /opt
 ENV MAILARCHIVA_HEAP_SIZE 1024m
 
 # ENV MYSQL_JDBC_PACKAGE mysql-connector-java-5.1.32
@@ -33,7 +33,7 @@ RUN mv $MAILARCHIVA_INSTALL_DIR/mailarchiva* $MAILARCHIVA_INSTALL_DIR/mailarchiv
 
 # Install mailarchiva - use expect to automate the interactive install
 ADD expect-install $MAILARCHIVA_INSTALL_DIR/mailarchiva/expect-install
-RUN expect $MAILARCHIVA_INSTALL_DIR/mailarchiva/expect-install
+RUN cd $MAILARCHIVA_INSTALL_DIR/mailarchiva && expect expect-install
 
 # setup runit to run mailarchiva on startup
 RUN mkdir /etc/service/mailarchiva
