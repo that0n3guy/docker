@@ -9,6 +9,7 @@ apt-get update && \
     apt-get --no-install-recommends -yq install \
         curl \
         nginx \
+        git \
         php5-fpm \
         php5-mysql \
         php5-imagick \
