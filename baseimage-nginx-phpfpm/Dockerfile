@@ -19,4 +19,5 @@ COPY ./composer /build/composer
 RUN /build/composer/setup.sh
 
 EXPOSE 80
+WORKDIR "/app"
 CMD ["/sbin/my_init"]
