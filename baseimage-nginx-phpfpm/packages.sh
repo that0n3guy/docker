@@ -21,6 +21,7 @@ apt-get update && \
         php5-gd \
         php5-xdebug \
         php5-gd \
+        php5-mongo \
         php-pear \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
