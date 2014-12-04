@@ -1,7 +1,7 @@
 #!/bin/sh
 # Configure logentries to start as a service
 mkdir /etc/service/logentries
-cp -a /app/.docker/logentries/runit.sh /etc/service/logentries/run
+cp -a /build/logentries/runit.sh /etc/service/logentries/run
 chmod +x /etc/service/logentries/run
 
 # Install logentries
@@ -29,5 +29,5 @@ service logentries stop
 update-rc.d logentries disable
 
 # add our startup script that will copy them back after mounting.
-cp -a /app/.docker/logentries/init.sh /etc/my_init.d/00_logentries.sh
+cp -a /build/logentries/init.sh /etc/my_init.d/00_logentries.sh
 chmod +x /etc/my_init.d/00_logentries.sh
