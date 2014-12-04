@@ -9,8 +9,11 @@ ENV HOME /root
 COPY ./packages.sh /build/packages.sh
 RUN /build/packages.sh
 
-COPY ./apache /build/apache
-RUN /build/apache/setup.sh
+COPY ./nginx /build/nginx
+RUN /build/nginx/setup.sh
+
+COPY ./php-fpm /build/php-fpm
+RUN /build/php-fpm/setup.sh
 
 COPY ./composer /build/composer
 RUN /build/composer/setup.sh
