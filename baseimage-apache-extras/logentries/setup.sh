@@ -1,7 +1,7 @@
 #!/bin/sh
 # Configure logentries to start as a service
 mkdir /etc/service/logentries
-cp -a /app/.docker/logentries/runit.sh /etc/service/logentries/run
+cp -a /build/logentries/runit.sh /etc/service/logentries/run
 chmod +x /etc/service/logentries/run
 
 # Install logentries

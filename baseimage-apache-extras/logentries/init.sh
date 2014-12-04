@@ -11,4 +11,4 @@ while IFS= read -r opt; do
         echo "Following $opt"
         le follow $opt
     fi
-done </app/.docker/logentries/followlist.txt
+done </build/logentries/followlist.txt
