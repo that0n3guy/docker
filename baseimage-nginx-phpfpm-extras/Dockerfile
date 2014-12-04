@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
 # run our logentries setup script
-RUN bash /app/.docker/logentries/setup.sh
+COPY ./logentries /build/logentries
+RUN /build/logentries/setup.sh
 
 EXPOSE 80
 WORKDIR /app

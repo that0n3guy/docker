@@ -5,8 +5,9 @@ MAINTAINER Peter Olson <that0n3guy@users.noreply.github.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-# run our nginx setup script
-RUN bash /app/.docker/logentries/setup.sh
+# run our logentries setup script
+COPY ./logentries /build/logentries
+RUN /build/logentries/setup.sh
 
 EXPOSE 80
 WORKDIR /app

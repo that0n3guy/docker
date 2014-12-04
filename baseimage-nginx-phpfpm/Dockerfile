@@ -9,7 +9,7 @@ ENV HOME /root
 COPY ./packages.sh /build/packages.sh
 RUN /build/packages.sh
 
-COPY ./apache /build/nginx
+COPY ./apache /build/apache
 RUN /build/apache/setup.sh
 
 COPY ./composer /build/composer
