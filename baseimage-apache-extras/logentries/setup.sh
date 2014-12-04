@@ -29,5 +29,5 @@ service logentries stop
 update-rc.d logentries disable
 
 # add our startup script that will copy them back after mounting.
-cp -a /app/.docker/logentries/init.sh /etc/my_init.d/00_logentries.sh
+cp -a /build/logentries/init.sh /etc/my_init.d/00_logentries.sh
 chmod +x /etc/my_init.d/00_logentries.sh
