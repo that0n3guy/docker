@@ -9,22 +9,24 @@ fi
 
 mkdir -p $APACHE_DOCROOT
 
-if [ $SYNC_UID -eq 1 ]
-then
-    uid=`stat -c '%u' $APACHE_DOCROOT`
-    gid=`stat -c '%g' $APACHE_DOCROOT`
-    
-    echo "Updating www-data ids to ($uid:$gid)"
-
-    if [ ! $uid -eq 0 ]
+if [ -z ${SYNC_UID+x} ]; then
+    if [ $SYNC_UID -eq 1 ];
     then
-        sed -i "s#^www-data:x:.*:.*:#www-data:x:$uid:$gid:#" /etc/passwd
-    fi
+        uid=`stat -c '%u' $APACHE_DOCROOT`
+        gid=`stat -c '%g' $APACHE_DOCROOT`
 
-    if [ ! $gid -eq 0 ]
-    then
-        sed -i "s#^www-data:x:.*:#www-data:x:$gid:#" /etc/group
-    fi
+        echo "Updating www-data ids to ($uid:$gid)"
 
-    chown www-data /var/log/apache2
+        if [ ! $uid -eq 0 ]
+        then
+            sed -i "s#^www-data:x:.*:.*:#www-data:x:$uid:$gid:#" /etc/passwd
+        fi
+
+        if [ ! $gid -eq 0 ]
+        then
+            sed -i "s#^www-data:x:.*:#www-data:x:$gid:#" /etc/group
+        fi
+
+        chown www-data /var/log/apache2
+    fi
 fi
