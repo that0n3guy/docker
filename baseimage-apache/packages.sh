@@ -14,8 +14,11 @@ apt-get update && \
         php5-gd \
         php5-curl \
         php-pear \
+        php5-imap \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
+
+php5enmod imap
 
 # Cleanup
 apt-get clean

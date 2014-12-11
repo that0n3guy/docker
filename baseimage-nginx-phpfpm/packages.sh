@@ -22,9 +22,12 @@ apt-get update && \
         php5-xdebug \
         php5-gd \
         php5-mongo \
+        php5-imap \
         php-pear \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
+
+php5enmod imap
 
 # Cleanup
 apt-get clean
