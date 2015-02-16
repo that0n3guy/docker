@@ -24,6 +24,7 @@ apt-get update && \
         php5-mongo \
         php5-imap \
         php-pear \
+        unzip \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
 

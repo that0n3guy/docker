@@ -15,6 +15,7 @@ apt-get update && \
         php5-curl \
         php-pear \
         php5-imap \
+        unzip \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
 
