@@ -32,6 +32,9 @@ RUN sed -i 's/server unix:\/var\/run\/php-fpm.sock;/server unix:\/var\/run\/php5
 RUN sed -i 's/#variables_hash_max_size 1024;/variables_hash_max_size 1024;/g' /etc/nginx/nginx.conf
 RUN mkdir -p /var/cache/nginx/microcache
 
+# make sure nginx is not a daemon
+RUN echo 'daemon off;' >> /etc/nginx/nginx.conf
+
 EXPOSE 80
 WORKDIR /app
 CMD ["/sbin/my_init"]
