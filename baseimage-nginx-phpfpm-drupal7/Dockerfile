@@ -9,6 +9,8 @@ RUN mv /etc/nginx /etc/nginx.old
 RUN git clone https://github.com/perusio/drupal-with-nginx.git /etc/nginx
 RUN cd /etc/nginx && git checkout D7
 
+RUN
+
 EXPOSE 80
 WORKDIR /app
 CMD ["/sbin/my_init"]

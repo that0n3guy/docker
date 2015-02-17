@@ -8,7 +8,7 @@ echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 apt-get update && \
     apt-get --no-install-recommends -yq install \
         curl \
-        nginx \
+        nginx-extras \
         git \
         php5-fpm \
         php5-mysql \
