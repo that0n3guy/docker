@@ -14,22 +14,24 @@ fi
 
 mkdir -p $NGINX_DOCROOT
 
-if [ $SYNC_UID -eq 1 ]
-then
-    uid=`stat -c '%u' $DOCROOT`
-    gid=`stat -c '%g' $DOCROOT`
-
-    echo "Updating www-data ids to ($uid:$gid)"
-
-    if [ ! $uid -eq 0 ]
+if [ -n "$SYNC_UID" ]; then
+    if [ $SYNC_UID -eq 1 ]
     then
-        sed -i "s#^www-data:x:.*:.*:#www-data:x:$uid:$gid:#" /etc/passwd
-    fi
+        uid=`stat -c '%u' $DOCROOT`
+        gid=`stat -c '%g' $DOCROOT`
 
-    if [ ! $gid -eq 0 ]
-    then
-        sed -i "s#^www-data:x:.*:#www-data:x:$gid:#" /etc/group
-    fi
+        echo "Updating www-data ids to ($uid:$gid)"
 
-    chown www-data /var/log/nginx
+        if [ ! $uid -eq 0 ]
+        then
+            sed -i "s#^www-data:x:.*:.*:#www-data:x:$uid:$gid:#" /etc/passwd
+        fi
+
+        if [ ! $gid -eq 0 ]
+        then
+            sed -i "s#^www-data:x:.*:#www-data:x:$gid:#" /etc/group
+        fi
+
+        chown www-data /var/log/nginx
+    fi
 fi
