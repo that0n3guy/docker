@@ -8,7 +8,7 @@ then
 fi
 
 DEFAULT_FILE="/etc/nginx/sites-enabled/default"
-if [ -f DEFAULT_FILE ]; then
+if [ -f $DEFAULT_FILE ]; then
     sed -i "s#root .*;#root $NGINX_DOCROOT;#" /etc/nginx/sites-enabled/default
 fi
 
