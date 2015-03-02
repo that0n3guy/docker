@@ -23,6 +23,7 @@ apt-get update && \
         php5-gd \
         php5-mongo \
         php5-imap \
+        php5-redis \
         php-pear \
         unzip \
         php-apc && \
