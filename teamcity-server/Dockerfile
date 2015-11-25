@@ -25,11 +25,11 @@ RUN apt-get install -y wget default-jre
 # Get the teamcity package and extract it.
 RUN wget -q -O - $TEAM_CITY_BASE_URL/$TEAM_CITY_PACKAGE | tar xzf - -C $TEAM_CITY_INSTALL_DIR 
 
-# Get the jdbc drivers for mysql and mv it to the right location
+# Get the jdbc drivers for mysql and mv it to a temp location.  We will copy to the right location durring boot just in case volume
 RUN mkdir -p $TEAMCITY_DATA_PATH/lib/jdbc
-RUN wget -q -O - http://dev.mysql.com/get/Downloads/Connector-J/$MYSQL_JDBC_PACKAGE.tar.gz | tar xzf - -C $TEAMCITY_DATA_PATH/lib/jdbc/
-RUN mv $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE/$MYSQL_JDBC_PACKAGE-bin.jar $TEAMCITY_DATA_PATH/lib/jdbc
-RUN rm -r $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE
+RUN wget -q -O - http://dev.mysql.com/get/Downloads/Connector-J/$MYSQL_JDBC_PACKAGE.tar.gz | tar xzf - -C /opt/
+#RUN mv $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE/$MYSQL_JDBC_PACKAGE-bin.jar $TEAMCITY_DATA_PATH/lib/jdbc
+#RUN rm -r $TEAMCITY_DATA_PATH/lib/jdbc/$MYSQL_JDBC_PACKAGE
 
 # setup runit to run teamcity on startup
 RUN mkdir /etc/service/teamcity-server
