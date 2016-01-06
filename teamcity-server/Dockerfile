@@ -7,7 +7,7 @@
 FROM phusion/baseimage:0.9.17
 
 ENV TEAM_CITY_BASE_URL http://download-ln.jetbrains.com/teamcity                 
-ENV TEAM_CITY_PACKAGE TeamCity-9.1.4.tar.gz
+ENV TEAM_CITY_PACKAGE TeamCity-9.1.5.tar.gz
 ENV TEAM_CITY_INSTALL_DIR /opt/
 ENV MYSQL_JDBC_PACKAGE mysql-connector-java-5.1.37
 
