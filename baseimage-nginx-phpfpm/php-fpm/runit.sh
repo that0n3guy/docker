@@ -1,2 +1,2 @@
 #!/bin/sh
-php5-fpm -c /etc/php5/fpm
+php7-fpm -c /etc/php7/fpm

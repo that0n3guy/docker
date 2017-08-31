@@ -10,26 +10,26 @@ apt-get update && \
         curl \
         nginx-extras \
         git \
-        php5-fpm \
-        php5-mysql \
-        php5-imagick \
-        php5-mcrypt \
-        php5-curl \
-        php5-cli \
-        php5-memcache \
-        php5-intl \
-        php5-gd \
-        php5-xdebug \
-        php5-gd \
-        php5-mongo \
-        php5-imap \
-        php5-redis \
+        php7.0-fpm \
+        php7.0-mysql \
+        php7.0-imagick \
+        php7.0-mcrypt \
+        php7.0-curl \
+        php7.0-cli \
+        php7.0-memcache \
+        php7.0-intl \
+        php7.0-gd \
+        php7.0-xdebug \
+        php7.0-gd \
+        php7.0-mongo \
+        php7.0-imap \
+        php7.0-redis \
         php-pear \
         unzip \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
 
-php5enmod imap
+php7enmod imap
 
 # Cleanup
 apt-get clean
