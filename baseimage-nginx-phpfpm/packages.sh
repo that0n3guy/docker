@@ -19,8 +19,6 @@ apt-get update && \
         php7.0-memcache \
         php7.0-intl \
         php7.0-gd \
-        php7.0-xdebug \
-        php7.0-gd \
         php7.0-mongo \
         php7.0-imap \
         php7.0-redis \
@@ -29,7 +27,7 @@ apt-get update && \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
 
-php7enmod imap
+phpenmod imap
 
 # Cleanup
 apt-get clean

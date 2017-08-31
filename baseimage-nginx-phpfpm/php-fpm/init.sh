@@ -11,8 +11,8 @@ find /etc/php7 -name php.ini -print0 | xargs -0 sed -i "s#;date.timezone =.*#dat
 
 if [ ! -z "$DEBUG" ]
 then
-	php7enmod xdebug
-	sed -i 's#^display_errors = Off#display_errors = On#' /etc/php7/fpm/php.ini
+	phpenmod xdebug
+	sed -i 's#^display_errors = Off#display_errors = On#' /etc/php/7.0/fpm/php.ini
 fi
 
 # Add environment variables to the php-fpm configuration
@@ -25,11 +25,11 @@ set_phpfpm_env_var() {
     fi
 
     # Check whether variable already exists
-    if grep "^env\[$1\]=" /etc/php7/fpm/pool.d/www.conf
+    if grep "^env\[$1\]=" /etc/php/7.0/fpm/pool.d/www.conf
     then
-        sed -i "s#^env\[$1\]=.*#env[$1]=\"$2\"#g" /etc/php7/fpm/pool.d/www.conf
+        sed -i "s#^env\[$1\]=.*#env[$1]=\"$2\"#g" /etc/php/7.0/fpm/pool.d/www.conf
     else
-        echo "env[$1]=\"$2\"" >> /etc/php7/fpm/pool.d/www.conf
+        echo "env[$1]=\"$2\"" >> /etc/php/7.0/fpm/pool.d/www.conf
     fi
 }
 
