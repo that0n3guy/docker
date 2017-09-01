@@ -1,2 +1,2 @@
 #!/bin/sh
-php7.0-fpm -c /etc/php/7.0/fpm
+php-fpm7.0 -c /etc/php/7.0/fpm

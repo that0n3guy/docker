@@ -10,21 +10,24 @@ apt-get update && \
         curl \
         nginx-extras \
         git \
-        php7.0-fpm \
+        php7.0-common \
         php7.0-mysql \
-        php7.0-imagick \
+        php7.0-fpm \
+        php-imagick \
         php7.0-mcrypt \
         php7.0-curl \
         php7.0-cli \
-        php7.0-memcache \
+        php-memcache \
         php7.0-intl \
         php7.0-gd \
-        php7.0-mongo \
         php7.0-imap \
-        php7.0-redis \
+        php-redis \
         php-pear \
-        unzip \
-        php-apc && \
+        php7.0-bcmath \
+        php7.0-mbstring \
+        php7.0-zip \
+        php7.0-json \
+        unzip && \
     rm -rf /var/lib/apt/lists/*
 
 phpenmod imap
