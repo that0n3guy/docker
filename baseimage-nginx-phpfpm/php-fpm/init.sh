@@ -7,7 +7,7 @@ then
     PHP_TIMEZONE="$TZ"
 fi
 
-find /etc/php7 -name php.ini -print0 | xargs -0 sed -i "s#;date.timezone =.*#date.timezone = $PHP_TIMEZONE#"
+find /etc/php/7.0/ -name php.ini -print0 | xargs -0 sed -i "s#;date.timezone =.*#date.timezone = $PHP_TIMEZONE#"
 
 if [ ! -z "$DEBUG" ]
 then

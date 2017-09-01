@@ -15,3 +15,6 @@ phpenmod mcrypt
 
 # Ensure the mode is correct on the unix socket
 sed -i 's#;listen.mode = 0660#listen.mode = 0666#g' /etc/php/7.0/fpm/pool.d/www.conf
+
+# create php folder for running sock
+mkdir /run/php
